@@ -2,7 +2,7 @@
 using System;
 using static Date;
 
-namespace TimeDetailMod
+namespace WidgetTimeViewer
 {
 
     [HarmonyPatch(typeof(Date))]
