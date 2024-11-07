@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Meta>
+  <title>WidgetTimeViewer Mod</title>
+  <id>yuu_widgettimeviewer</id>
+  <author>yuu_111</author>
+  <builtin>false</builtin>
+  <loadPriority>100</loadPriority>
+  <version>1.0.3</version>
+  <description>画面左上の表示情報に時間表示を追加するModです&#xA;Mod to add time display to the display information in the upper left corner of the screen.&#xA;SourceCode: https://github.com/yuu1111/WidgetTimeViewer</description>
+</Meta>
