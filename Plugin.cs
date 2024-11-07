@@ -17,6 +17,7 @@ namespace WidgetTimeViewer
 
         public void Awake()
         {
+
             Logger = base.Logger;
             new Harmony(pluginGuid).PatchAll();
         }

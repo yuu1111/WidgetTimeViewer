@@ -1,4 +1,5 @@
-﻿using HarmonyLib;
+﻿using BepInEx.Logging;
+using HarmonyLib;
 using System;
 using static Date;
 
@@ -13,8 +14,19 @@ namespace WidgetTimeViewer
         {
             if (format == TextFormat.Widget)
             {
-                __result = "dateYearMonthDay".lang(__instance.year.ToString() ?? "", __instance.month.ToString() ?? "", __instance.day.ToString() ?? "", __instance.hour.ToString() ) + " " + __instance.hour.ToString() + "時" + __instance.min.ToString() + "分";
-                return false;
+                string lang = EClass.core.config.lang;
+                Plugin.Logger.LogInfo("lang: " + lang);
+                if (lang == "JP")
+                {
+                    Plugin.Logger.LogInfo("JP");
+                    __result = "dateYearMonthDay".lang(__instance.year.ToString() ?? "", __instance.month.ToString() ?? "", __instance.day.ToString() ?? "", __instance.hour.ToString()) + " " + __instance.hour.ToString() + "時" + __instance.min.ToString() + "分";
+                    return false;
+                } else
+                {
+                    Plugin.Logger.LogInfo("Other");
+                    __result = "dateYearMonthDay".lang(__instance.year.ToString() ?? "", __instance.month.ToString() ?? "", __instance.day.ToString() ?? "", __instance.hour.ToString()) + " " + __instance.hour.ToString() + ":" + __instance.min.ToString();
+                    return false;
+                }
             }
             return true;
         }
