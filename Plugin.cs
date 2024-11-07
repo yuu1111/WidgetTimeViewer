@@ -3,14 +3,14 @@ using HarmonyLib;
 using BepInEx.Logging;
 
 
-namespace WidgetTimeViwer
+namespace WidgetTimeViewer
 {
     [BepInPlugin(pluginGuid, pluginName, pluginVersion)]
     public class Plugin : BaseUnityPlugin
     {
         // const
-        public const string pluginGuid = "com.github.yuu1111.widgettimeviwer";
-        public const string pluginName = "WidgetTimeViwer Mod";
+        public const string pluginGuid = "com.github.yuu1111.widgettimeviewer";
+        public const string pluginName = "WidgetTimeViewer Mod";
         public const string pluginVersion = "1.0.0";
 
         internal static new ManualLogSource Logger;
