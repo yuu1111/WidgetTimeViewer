@@ -5,21 +5,20 @@ using BepInEx.Logging;
 
 namespace WidgetTimeViewer
 {
-    [BepInPlugin(pluginGuid, pluginName, pluginVersion)]
+    [BepInPlugin(PluginGuid, PluginName, PluginVersion)]
     public class Plugin : BaseUnityPlugin
     {
         // const
-        public const string pluginGuid = "com.github.yuu1111.widgettimeviewer";
-        public const string pluginName = "WidgetTimeViewer Mod";
-        public const string pluginVersion = "1.0.0";
+        public const string PluginGuid = "com.github.yuu1111.widgettimeviewer";
+        public const string PluginName = "WidgetTimeViewer Mod";
+        public const string PluginVersion = "1.0.3";
 
         internal static new ManualLogSource Logger;
 
         public void Awake()
         {
-
             Logger = base.Logger;
-            new Harmony(pluginGuid).PatchAll();
+            new Harmony(PluginGuid).PatchAll();
         }
     }
 }

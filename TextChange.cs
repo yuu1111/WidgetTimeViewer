@@ -17,14 +17,27 @@ namespace WidgetTimeViewer
                 string lang = EClass.core.config.lang;
                 if (lang == "JP")
                 {
-                    __result = "dateYearMonthDay".lang(__instance.year.ToString() ?? "", __instance.month.ToString() ?? "", __instance.day.ToString() ?? "", __instance.hour.ToString()) + " " + __instance.hour.ToString() + "時" + __instance.min.ToString() + "分";
-                    return false;
-                } else
-                {
-                    __result = "dateYearMonthDay".lang(__instance.year.ToString() ?? "", __instance.month.ToString() ?? "", __instance.day.ToString() ?? "", __instance.hour.ToString()) + " " + __instance.hour.ToString() + ":" + __instance.min.ToString();
+                    __result = "dateYearMonthDay".lang(__instance.year.ToString() ?? "",
+                                   __instance.month.ToString() ?? "", __instance.day.ToString() ?? "",
+                                   __instance.hour.ToString()) + " " + __instance.hour + "時" +
+                               __instance.min + "分";
                     return false;
                 }
+
+                string min = __instance.min.ToString();
+                
+                if (__instance.min < 10)
+                {
+                    min = "0" + min;
+                }
+                
+                __result = "dateYearMonthDay".lang(__instance.year.ToString() ?? "", __instance.month.ToString() ?? "",
+                               __instance.day.ToString() ?? "", __instance.hour.ToString()) + " " +
+                           __instance.hour +
+                           ":" + min;
+                return false;
             }
+
             return true;
         }
     }
