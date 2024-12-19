@@ -1,44 +1,47 @@
-﻿using BepInEx.Logging;
-using HarmonyLib;
-using System;
+﻿using HarmonyLib;
 using static Date;
 
 namespace WidgetTimeViewer
 {
-
-    [HarmonyPatch(typeof(Date))]
-    [HarmonyPatch(typeof(Date), "GetText", new Type[] { typeof(TextFormat) })]
+    
+    [HarmonyPatch(typeof(Date), "GetText", typeof(TextFormat))]
     static class TextChange
     {
         static bool Prefix(Date __instance, TextFormat format, ref string __result)
         {
             if (format == TextFormat.Widget)
             {
-                string lang = EClass.core.config.lang;
-                if (lang == "JP")
-                {
-                    __result = "dateYearMonthDay".lang(__instance.year.ToString() ?? "",
-                                   __instance.month.ToString() ?? "", __instance.day.ToString() ?? "",
-                                   __instance.hour.ToString()) + " " + __instance.hour + "時" +
-                               __instance.min + "分";
-                    return false;
-                }
+                // 年月日、時刻の共通フォーマット取得
+                string formattedDate = FormatDate(__instance);
+                string formattedTime = FormatTime(__instance);
 
-                string min = __instance.min.ToString();
+                // 言語設定による出力
+                string lang = EClass.core.config.lang;
                 
-                if (__instance.min < 10)
-                {
-                    min = "0" + min;
-                }
+                __result = lang == "JP" ? $"{formattedDate} {__instance.hour}時{__instance.min}分" : $"{formattedDate} {formattedTime}";
                 
-                __result = "dateYearMonthDay".lang(__instance.year.ToString() ?? "", __instance.month.ToString() ?? "",
-                               __instance.day.ToString() ?? "", __instance.hour.ToString()) + " " +
-                           __instance.hour +
-                           ":" + min;
                 return false;
             }
-
             return true;
+        }
+
+        
+        // 日付部分をフォーマットする関数
+        private static string FormatDate(Date instance)
+        {
+            return "dateYearMonthDay".lang(
+                instance.year.ToString() ?? "",
+                instance.month.ToString() ?? "",
+                instance.day.ToString() ?? "",
+                instance.hour.ToString()
+            );
+        }
+
+        // 時刻部分をフォーマットする関数
+        private static string FormatTime(Date instance)
+        {
+            string minute = instance.min < 10 ? $"0{instance.min}" : instance.min.ToString();
+            return $"{instance.hour}:{minute}";
         }
     }
 }
