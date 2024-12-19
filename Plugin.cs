@@ -17,6 +17,7 @@ namespace WidgetTimeViewer
         public void Awake()
         {
             Logger = base.Logger;
+            Logger.LogInfo("WidgetTimeViewer v" + PluginVersion + " is loaded!");
             new Harmony(PluginGuid).PatchAll();
         }
     }
