@@ -5,7 +5,7 @@
   <author>yuu_111</author>
   <builtin>false</builtin>
   <loadPriority>100</loadPriority>
-  <version>1.0.3</version>
+  <version>0.23.61</version>
   <description>画面左上の表示情報に時間表示を追加するModです
   Mod to add time display to the display information in the upper left corner of the screen.
   在屏幕左上角的显示信息中添加时间显示
