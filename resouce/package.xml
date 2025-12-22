@@ -1,14 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Meta>
-  <title>WidgetTimeViewer Mod</title>
+  <title>WidgetTimeViewer</title>
   <id>yuu_widgettimeviewer</id>
   <author>yuu_111</author>
   <builtin>false</builtin>
   <loadPriority>100</loadPriority>
-  <version>0.23.61</version>
-  <description>画面左上の表示情報に時間表示を追加するModです
-  Mod to add time display to the display information in the upper left corner of the screen.
-  在屏幕左上角的显示信息中添加时间显示
-  SourceCode: https://github.com/yuu1111/WidgetTimeViewer</description>
+  <version>0.23.247</version>
+  <description>
+    画面左上のウィジェットに時間表示を追加するModです。
+    日本語環境では「○時○分」形式、それ以外では「HH:MM」形式で表示します。
+
+    ---
+
+    Adds time display to the widget in the upper left corner of the screen.
+    Shows time in Japanese format for JP locale, "HH:MM" format for others.
+
+    ---
+
+    在屏幕左上角的小部件中添加时间显示。
+    日语环境下显示为"○时○分"格式，其他环境显示为"HH:MM"格式。
+
+    ---
+
+    SourceCode: https://github.com/yuu1111/WidgetTimeViewer
+  </description>
   <tags>General,QoL</tags>
 </Meta>

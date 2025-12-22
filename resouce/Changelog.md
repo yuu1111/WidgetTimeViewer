@@ -1,3 +1,11 @@
+# 1.0.5
+
+  - コードにXMLドキュメントコメントを追加
+  - クラス名をDateTextPatchに変更
+  - .gitignoreを簡素化
+
+
+
 # 1.0.4
 
   - リファクタリングを行った
@@ -10,6 +18,7 @@
     - Thankyou @Martha Pepper
   - 中国語の説明を追加
     -  Thankyou @心凉
+
 
 
 # 1.0.2
