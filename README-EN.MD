@@ -15,7 +15,7 @@ Adds time display to the widget in the upper left corner of the screen.
 
 ## Installation
 
-Just subscribe to [WidgetTimeViewer](https://steamcommunity.com/sharedfiles/filedetails/?id=3352893889) from Steam Workshop
+Just subscribe to [WidgetTimeViewer](https://steamcommunity.com/sharedfiles/filedetails/?id=3361530432) from Steam Workshop
 
 ## Changelog
 

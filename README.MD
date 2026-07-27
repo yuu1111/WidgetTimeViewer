@@ -15,7 +15,7 @@
 
 ## インストール
 
-Steam Workshopから [WidgetTimeViewer](https://steamcommunity.com/sharedfiles/filedetails/?id=3352893889) をサブスクライブ
+Steam Workshopから [WidgetTimeViewer](https://steamcommunity.com/sharedfiles/filedetails/?id=3361530432) をサブスクライブ
 
 ## 変更履歴
 
