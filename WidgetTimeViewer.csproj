@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -33,60 +33,79 @@
   <ItemGroup>
     <Reference Include="0Harmony">
       <HintPath>lib\0Harmony.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Assembly-CSharp">
       <HintPath>lib\Assembly-CSharp.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Assembly-CSharp-firstpass">
       <HintPath>lib\Assembly-CSharp-firstpass.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="BepInEx.Core">
       <HintPath>lib\BepInEx.Core.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="BepInEx.Preloader.Core">
       <HintPath>lib\BepInEx.Preloader.Core.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="BepInEx.Preloader.Unity">
       <HintPath>lib\BepInEx.Preloader.Unity.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="BepInEx.Unity">
       <HintPath>lib\BepInEx.Unity.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Elin">
       <HintPath>lib\Elin.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Plugins">
       <HintPath>lib\Plugins.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Plugins.ActorSystem">
       <HintPath>lib\Plugins.ActorSystem.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Plugins.BaseCore">
       <HintPath>lib\Plugins.BaseCore.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Plugins.Calc">
       <HintPath>lib\Plugins.Calc.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Plugins.Dungen">
       <HintPath>lib\Plugins.Dungen.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Plugins.NameGen">
       <HintPath>lib\Plugins.NameGen.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Plugins.NoiseSystem">
       <HintPath>lib\Plugins.NoiseSystem.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Plugins.Sound">
       <HintPath>lib\Plugins.Sound.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Plugins.Tween">
       <HintPath>lib\Plugins.Tween.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Plugins.UI">
       <HintPath>lib\Plugins.UI.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Plugins.Util">
       <HintPath>lib\Plugins.Util.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -98,12 +117,15 @@
     <Reference Include="System.Xml" />
     <Reference Include="UnityEngine">
       <HintPath>lib\UnityEngine.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.CoreModule">
       <HintPath>lib\UnityEngine.CoreModule.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>lib\UnityEngine.UI.dll</HintPath>
+      <Private>False</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>

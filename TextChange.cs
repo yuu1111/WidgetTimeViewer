@@ -3,57 +3,54 @@ using static Date;
 
 namespace WidgetTimeViewer
 {
-    /// <summary>
-    /// Date.GetText()メソッドをパッチしてウィジェットの時間表示を改善する
-    /// </summary>
     [HarmonyPatch(typeof(Date), nameof(Date.GetText), typeof(TextFormat))]
     internal static class DateTextPatch
     {
-        /// <summary>
-        /// ウィジェット用の時間テキストを独自フォーマットで上書きする
-        /// </summary>
-        /// <param name="__instance">Dateインスタンス</param>
-        /// <param name="format">テキストフォーマット種別</param>
-        /// <param name="__result">出力される結果文字列</param>
-        /// <returns>元メソッドの実行をスキップするかどうか</returns>
+        private static Date cachedInstance;
+        private static string cachedLanguage;
+        private static int cachedYear, cachedMonth, cachedDay, cachedHour, cachedMinute;
+        private static string cachedDate;
+        private static string cachedText;
+
         private static bool Prefix(Date __instance, TextFormat format, ref string __result)
         {
-            if (format != TextFormat.Widget)
+            if (format != TextFormat.Widget || EClass.core == null || EClass.core.config == null)
             {
                 return true;
             }
 
-            string formattedDate = FormatDate(__instance);
-            string formattedTime = FormatTime(__instance);
-            string lang = EClass.core.config.lang;
+            string language = EClass.core.config.lang;
+            bool dateChanged = cachedDate == null
+                || !ReferenceEquals(cachedInstance, __instance)
+                || cachedLanguage != language
+                || cachedYear != __instance.year
+                || cachedMonth != __instance.month
+                || cachedDay != __instance.day;
 
-            __result = lang == "JP"
-                ? $"{formattedDate} {__instance.hour}時{__instance.min}分"
-                : $"{formattedDate} {formattedTime}";
+            if (dateChanged)
+            {
+                cachedDate = "dateYearMonthDay".lang(
+                    __instance.year.ToString(),
+                    __instance.month.ToString(),
+                    __instance.day.ToString());
+                cachedInstance = __instance;
+                cachedLanguage = language;
+                cachedYear = __instance.year;
+                cachedMonth = __instance.month;
+                cachedDay = __instance.day;
+            }
 
+            if (dateChanged || cachedHour != __instance.hour || cachedMinute != __instance.min)
+            {
+                cachedText = language == "JP"
+                    ? $"{cachedDate} {__instance.hour}時{__instance.min}分"
+                    : $"{cachedDate} {__instance.hour}:{__instance.min:00}";
+                cachedHour = __instance.hour;
+                cachedMinute = __instance.min;
+            }
+
+            __result = cachedText;
             return false;
-        }
-
-        /// <summary>
-        /// 日付部分をフォーマットする
-        /// </summary>
-        private static string FormatDate(Date instance)
-        {
-            return "dateYearMonthDay".lang(
-                instance.year.ToString() ?? "",
-                instance.month.ToString() ?? "",
-                instance.day.ToString() ?? "",
-                instance.hour.ToString()
-            );
-        }
-
-        /// <summary>
-        /// 時刻部分をフォーマットする (HH:MM形式)
-        /// </summary>
-        private static string FormatTime(Date instance)
-        {
-            string minute = instance.min < 10 ? $"0{instance.min}" : instance.min.ToString();
-            return $"{instance.hour}:{minute}";
         }
     }
 }

@@ -17,7 +17,7 @@ dotnet build WidgetTimeViewer.csproj -c Release
 # 技術スタック
 
 - C# (.NET Framework 4.7.2)
-- BepInEx 5.x (Unity用Modフレームワーク)
+- BepInEx 6.x (インストール済みElinのBepInExを参照)
 - Harmony 2.x (ランタイムパッチライブラリ)
 
 # アーキテクチャ

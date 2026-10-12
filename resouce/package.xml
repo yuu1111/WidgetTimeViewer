@@ -5,7 +5,7 @@
   <author>yuu_111</author>
   <builtin>false</builtin>
   <loadPriority>100</loadPriority>
-  <version>0.23.247</version>
+  <version>0.23.355</version>
   <description>
     画面左上のウィジェットに時間表示を追加するModです。
     日本語環境では「○時○分」形式、それ以外では「HH:MM」形式で表示します。
